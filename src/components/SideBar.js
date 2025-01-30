@@ -8,6 +8,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function SideBar() {
+  // Fonction pour scroller vers une section spécifique
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop,
+        behavior: "smooth", // Animation fluide
+      });
+    }
+  };
+
   return (
     <div
       style={{
@@ -33,12 +44,13 @@ function SideBar() {
           color: "#E6E6E6",
           backgroundColor: "#5653A8",
           gap: "4rem",
+          cursor: "pointer", // Pour indiquer que c'est cliquable
         }}
       >
-        <FontAwesomeIcon icon={faHouse} />
-        <FontAwesomeIcon icon={faUser} />
-        <FontAwesomeIcon icon={faFolderTree} />
-        <FontAwesomeIcon icon={faEnvelope} />
+        <FontAwesomeIcon icon={faHouse} onClick={() => scrollToSection("home")} />
+        <FontAwesomeIcon icon={faUser} onClick={() => scrollToSection("about")} />
+        <FontAwesomeIcon icon={faFolderTree} onClick={() => scrollToSection("projects")} />
+        <FontAwesomeIcon icon={faEnvelope} onClick={() => scrollToSection("contact")} />
       </div>
     </div>
   );
