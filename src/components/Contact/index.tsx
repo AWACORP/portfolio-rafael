@@ -36,9 +36,9 @@ export function ContactSection() {
     })
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-        const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-        const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-        const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+        const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+        const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
+        const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
         try {
             const emailParams = {
@@ -47,7 +47,7 @@ export function ContactSection() {
                 message: values.message
             };
 
-            //emailjs.send(serviceID, templateID, emailParams, userID);
+            emailjs.send(serviceID, templateID, emailParams, userID);
 
 
         } catch (error) {

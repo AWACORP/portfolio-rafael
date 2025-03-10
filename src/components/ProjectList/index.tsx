@@ -11,7 +11,7 @@ import { CheckCircle } from "lucide-react";
 import { Card, CardFooter, CardHeader } from "../ui/card";
 import { motion } from "framer-motion"
 
-const technologyColors = {
+const technologyColor: Record<string, string> = {
   React: "bg-blue-500 hover:bg-blue-600 text-white", // Exemple : bleu pour React
   "Next.js": "bg-zinc-600 hover:bg-zinc-700 text-white", // Noir pour Next.js
   Tailwind: "bg-teal-600 hover:bg-teal-700 text-white", // Turquoise pour Tailwind
@@ -21,7 +21,6 @@ const technologyColors = {
   CSharp: "bg-purple-600 hover:bg-purple-700 text-white", // Violet pour C#
   CPlusPlus: "bg-blue-800 hover:bg-blue-900 text-white", // Bleu nuit pour C++
   PHP: "bg-indigo-500 hover:bg-indigo-600 text-white", // Indigo pour PHP
-  // Ajoute d'autres technologies et couleurs ici
 };
 
 const projects = [
@@ -99,7 +98,7 @@ const projects = [
 
 export function ProjectList() {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const categories = [
     { id: "all", name: "Tous" },
@@ -112,7 +111,7 @@ export function ProjectList() {
     return categoryMatch;
   })
     .sort((a, b) => {
-      return new Date(b.date) - new Date(a.date);
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
     });
 
   return (
@@ -155,7 +154,7 @@ export function ProjectList() {
                 </CardHeader>
                 <CardFooter className="gap-2">
                   {project.technologies.map((tech) => (
-                    <Badge key={tech} className={`${technologyColors[tech] || "bg-gray-500 text-white"}`} >{tech}</Badge>
+                    <Badge key={tech} className={`${technologyColor[tech] || "bg-gray-500 text-white"}`} >{tech}</Badge>
                   ))}
                 </CardFooter>
               </Card>
@@ -182,7 +181,7 @@ export function ProjectList() {
             <p className="mt-2 text-sm">{selectedProject.description}</p>
             <div className="mt-2 flex gap-2 flex-wrap">
               {selectedProject.technologies.map((tech) => (
-                <Badge key={tech} className={`${technologyColors[tech] || "bg-gray-500 text-white"}`} >{tech}</Badge>
+                <Badge key={tech} className={`${technologyColor[tech] || "bg-gray-500 text-white"}`} >{tech}</Badge>
               ))}
             </div>
             <ul className="mt-4 space-y-1  text-sm">
@@ -213,4 +212,19 @@ export function ProjectList() {
       )}
     </motion.div>
   );
+}
+
+interface Project {
+  id: number;
+  name: string;
+  category: string;
+  company: string;
+  image: string;
+  description: string;
+  technologies: string[];
+  features: string[];
+  github: string;
+  live: string;
+  privateRepo: boolean;
+  date: string;
 }
