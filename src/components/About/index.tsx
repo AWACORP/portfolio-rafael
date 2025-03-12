@@ -47,7 +47,7 @@ export function AboutSection() {
                                 <Image src="/logos/git.png" alt="Git Logo" width={70} height={25} className="w-[50px] h-auto" priority />
                             </div>
                             <div className="logo-tech">
-                                <Image src="/logos/unity.png" alt="Unity Logo" width={100} height={25} className="w-[80px] h-auto" priority />
+                                <Image src="/logos/unity.png" alt="Unity Logo" width={100} height={25} className="w-[50px] h-auto" priority />
                             </div>
                         </div>
                         <div className="flex items-center justify-center gap-8">
