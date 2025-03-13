@@ -92,7 +92,7 @@ export default function About() {
                                 <Card>
                                     <CardHeader>
                                         <CardTitle>Baccalauréat STI2D</CardTitle>
-                                        <CardDescription className="text-xs">Sciences et Technologies de l'Industrie et du Développement Durable </CardDescription>
+                                        <CardDescription className="text-xs">Sciences et Technologies de l&apos;Industrie et du Développement Durable </CardDescription>
                                         <CardDescription className="text-xs">Lycée Dorian | septembre 2016 - juillet 2018</CardDescription>
                                     </CardHeader>
                                 </Card>

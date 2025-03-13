@@ -326,9 +326,9 @@ interface Project {
   description: string;
   technologies: string[];
   features: string[];
-  github: string;
-  video: string;
-  live: string;
-  privateRepo: boolean;
+  github?: string;
+  video?: string;
+  live?: string;
+  privateRepo?: boolean;
   date: string;
 }
