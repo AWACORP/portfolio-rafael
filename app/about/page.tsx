@@ -23,6 +23,7 @@ const skillsData = {
     languages: [
         { name: "Python", logo: "/logos/python.png" },
         { name: "JavaScript", logo: "/logos/javascript.png" },
+        { name: "TypeScript", logo: "/logos/typescript.png" },
         { name: "C#", logo: "/logos/csharp.png" },
         { name: "C++", logo: "/logos/cplusplus.png" },
         { name: "PHP", logo: "/logos/php.png" },
@@ -33,7 +34,7 @@ const skillsData = {
         { name: "Illustrator", logo: "/logos/illustrator.png" },
     ],
     projectManagement: [{ name: "Git", logo: "/logos/git.png" }],
-    frameworks: [
+    "frameworks / librairies": [
         { name: "Angular", logo: "/logos/angular.png" },
         { name: "React /& Native", logo: "/logos/react.png" },
         { name: "Next.js", logo: "/logos/nextjs.png" },
@@ -68,25 +69,30 @@ export default function About() {
                             <div className="flex justify-center align-center flex-col gap-5">
                                 <Card>
                                     <CardHeader>
-                                        <CardTitle>Expert en Ingénierie du Développement et en Artchitecture Logicielle (Bac+5)</CardTitle>
+                                        <CardTitle>Master Expert en Ingénierie Informatique (Bac+5)</CardTitle>
+                                        <CardDescription className="text-xs">Certification professionnelle de niveau 7 - Code NSF 326 </CardDescription>
                                         <CardDescription className="text-xs">ESGI | septembre 2021 - juillet 2023</CardDescription>
+
                                     </CardHeader>
                                 </Card>
                                 <Card>
                                     <CardHeader>
-                                        <CardTitle>Chargés de projets en systèmes informatiques (Bac+3)</CardTitle>
+                                        <CardTitle>Bachelor Chargés de projets en systèmes informatiques (Bac+3)</CardTitle>
+                                        <CardDescription className="text-xs">Certification professionnelle de niveau 6 - Code NSF 326n </CardDescription>
                                         <CardDescription className="text-xs">ESGI | septembre 2020 - juillet 2021</CardDescription>
                                     </CardHeader>
                                 </Card>
                                 <Card>
                                     <CardHeader>
                                         <CardTitle>BTS SNEC (Bac+2)</CardTitle>
+                                        <CardDescription className="text-xs">Système Numérique Option Electronique et Communication </CardDescription>
                                         <CardDescription className="text-xs">Lycée Dorian | septembre 2018 - juillet 2020</CardDescription>
                                     </CardHeader>
                                 </Card>
                                 <Card>
                                     <CardHeader>
                                         <CardTitle>Baccalauréat STI2D</CardTitle>
+                                        <CardDescription className="text-xs">Sciences et Technologies de l'Industrie et du Développement Durable </CardDescription>
                                         <CardDescription className="text-xs">Lycée Dorian | septembre 2016 - juillet 2018</CardDescription>
                                     </CardHeader>
                                 </Card>
@@ -96,8 +102,9 @@ export default function About() {
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3, ease: "easeOut", delay: 0.2 }}
-                            viewport={{ once: true }}>
-
+                            viewport={{ once: true }}
+                            className="hidden md:block"
+                        >
                             <h2 className="text-xl font-bold mb-4">Professionnel</h2>
                             <div className="my-3 flex justify-start align-center gap-3 flex flex-col">
                                 <Card>
@@ -123,8 +130,39 @@ export default function About() {
                     </div>
                 </div>
             </section>
+            <section className="flex section md:!hidden py-12 justify-center text-center">
+                <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, ease: "easeOut", delay: 0.2 }}
+                    viewport={{ once: true }}
+                >
+
+                    <h2 className="text-xl font-bold mb-4">Professionnel</h2>
+                    <div className="my-3 flex justify-start align-center gap-3 flex flex-col">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Développeur Indépendant Web</CardTitle>
+                                <CardDescription className="text-xs">septembre 2024 - aujourd&apos;hui</CardDescription>
+                            </CardHeader>
+                        </Card>
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Apprenant Développeur Web</CardTitle>
+                                <CardDescription className="text-xs">DGAC | aout 2020 - septembre 2023</CardDescription>
+                            </CardHeader>
+                        </Card>
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Apprenant Développeur d&apos;Application</CardTitle>
+                                <CardDescription className="text-xs">Un Air De Clope | mai - juillet 2019</CardDescription>
+                            </CardHeader>
+                        </Card>
+                    </div>
+                </motion.div>
+            </section>
             <section className="section py-12" id="competences">
-                <div className="container mx-auto px-4 text-center">
+                <div className="container mx-auto px-4 text-center my-5">
                     <motion.h1
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -140,7 +178,7 @@ export default function About() {
                         {Object.entries(skillsData).map(([category, skills]) => (
                             <div
                                 key={category}
-                                className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6"
+                                className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 min-w-75 lg:min-w-0"
                             >
                                 <h2 className="text-xl palanquin font-bold font-semibold mb-4 capitalize">
                                     {category.replace(/([A-Z])/g, " $1").trim()}
@@ -156,7 +194,7 @@ export default function About() {
                                                 alt={skill.name}
                                                 width={500}
                                                 height={500}
-                                                className="w-auto h-10"
+                                                className="w-auto h-8 md:h-10"
                                             />
                                             <p className="text-xs italic whitespace-nowrap">{skill.name}</p>
                                         </div>
